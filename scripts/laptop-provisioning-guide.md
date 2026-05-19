@@ -1,8 +1,13 @@
-# Provisioning a New FLL Team Laptop
+# Provisioning a New FLL Team Laptop (Windows)
 
-A guide for any coach setting up a donated laptop for a Bolton Robotics FLL
-team. Start with **Quick Start** below. If anything's unclear, the
-**Detailed Steps** section that follows expands every line with specifics.
+A guide for any coach setting up a donated **Windows** laptop for a Bolton
+Robotics FLL team. Start with **Quick Start** below. If anything's unclear,
+the **Detailed Steps** section that follows expands every line with specifics.
+
+> For macOS laptops use [laptop-provisioning-guide-mac.md](laptop-provisioning-guide-mac.md);
+> for Linux use [laptop-provisioning-guide-linux.md](laptop-provisioning-guide-linux.md).
+> The three scripts and docs are intentionally parallel — same nine sections,
+> same prompts, same outcome.
 
 ## Quick Start
 

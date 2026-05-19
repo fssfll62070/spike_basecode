@@ -5,10 +5,10 @@ Robotics FLL team. Start with **Quick Start** below. If anything's
 unclear, the **Detailed Steps** section that follows expands every line
 with specifics.
 
-> For Windows laptops, use the sibling guide:
-> [laptop-provisioning-guide.md](laptop-provisioning-guide.md). The two
-> scripts and docs are intentionally parallel -- same nine sections,
-> same prompts, same outcome.
+> For Windows laptops use [laptop-provisioning-guide.md](laptop-provisioning-guide.md);
+> for Linux use [laptop-provisioning-guide-linux.md](laptop-provisioning-guide-linux.md).
+> The three scripts and docs are intentionally parallel -- same nine
+> sections, same prompts, same outcome.
 
 ## Quick Start
 
