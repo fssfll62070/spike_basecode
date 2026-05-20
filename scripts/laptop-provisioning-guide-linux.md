@@ -13,7 +13,7 @@ expands every line with specifics.
 > **One note about GitHub Desktop on Linux:** the official GitHub
 > Desktop has no Linux build, but a community fork by `shiftkey`
 > tracks upstream closely and is functionally identical. The chapter
-> uses it via Flatpak (`io.github.shiftkey.Desktop` from Flathub) so
+> uses it via Flatpak (`io.github.shiftey.Desktop` from Flathub) so
 > kids on Linux teams have the same UX as Windows/macOS teams.
 
 ## Quick Start
@@ -236,7 +236,7 @@ skipped.
 
 **GitHub Desktop is the shiftkey Flatpak fork.** The official GitHub
 Desktop has no Linux build, so the chapter standardizes on the
-community fork `io.github.shiftkey.Desktop` from Flathub. It tracks
+community fork `io.github.shiftey.Desktop` from Flathub. It tracks
 upstream closely and is functionally identical for the operations
 kids care about (clone, fetch, commit, push, sync fork). Flatpak runs
 the app in a sandbox -- file access is limited to a few well-known

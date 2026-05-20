@@ -255,7 +255,6 @@ fi
 dnf_packages=(
     "git"
     "python3.12"
-    "python3.12-pip"
     "code"
     "flatpak"
 )
@@ -274,9 +273,9 @@ cecho "$GRAY" "  Ensuring Flathub remote is configured (user-level)..."
 flatpak remote-add --if-not-exists --user flathub \
     https://flathub.org/repo/flathub.flatpakrepo
 
-if ! flatpak --user info io.github.shiftkey.Desktop >/dev/null 2>&1; then
+if ! flatpak --user info io.github.shiftey.Desktop >/dev/null 2>&1; then
     cecho "$GRAY" "  Installing GitHub Desktop (shiftkey fork) from Flathub..."
-    flatpak install --user -y flathub io.github.shiftkey.Desktop
+    flatpak install --user -y flathub io.github.shiftey.Desktop
 else
     cecho "$GRAY" "  GitHub Desktop (shiftkey fork) already installed."
 fi
@@ -568,8 +567,8 @@ make_desktop_entry "fll-team-${TEAM_NUMBER}-github-desktop.desktop" "[Desktop En
 Type=Application
 Name=GitHub Desktop
 Comment=Launch GitHub Desktop (shiftkey Linux fork)
-Exec=flatpak run io.github.shiftkey.Desktop
-Icon=io.github.shiftkey.Desktop
+Exec=flatpak run io.github.shiftey.Desktop
+Icon=io.github.shiftey.Desktop
 Terminal=false
 Categories=Development;
 StartupNotify=true"
@@ -618,7 +617,7 @@ CHAPTER UPSTREAM (where updates come from):
 
 NOTE FOR TECHNICAL COACHES:
   GitHub Desktop on Linux is the shiftkey community Flatpak fork
-  (io.github.shiftkey.Desktop). Functionally it behaves like the
+  (io.github.shiftey.Desktop). Functionally it behaves like the
   Windows/macOS official build. If you prefer the CLI, all the
   Desktop operations have direct git equivalents:
       git pull / git fetch upstream / git push origin main
@@ -636,9 +635,9 @@ cecho "$YELLOW" "[8/9] GitHub Desktop authentication and repository clone..."
 if [[ -d "$REPO_PATH/.git" ]]; then
     cecho "$GRAY" "  Repository already cloned at $REPO_PATH -- skipping clone step."
 else
-    if flatpak --user info io.github.shiftkey.Desktop >/dev/null 2>&1; then
+    if flatpak --user info io.github.shiftey.Desktop >/dev/null 2>&1; then
         # Launch in background so the script can continue to its prompt.
-        ( flatpak run io.github.shiftkey.Desktop >/dev/null 2>&1 & )
+        ( flatpak run io.github.shiftey.Desktop >/dev/null 2>&1 & )
         cecho "$GRAY" "  GitHub Desktop launched."
     else
         cecho "$YELLOW" "  GitHub Desktop Flatpak not found -- launch it manually from Activities."
@@ -786,7 +785,7 @@ echo         "       trigger 'Import could not be resolved' errors."
 cecho "$WHITE" "  5. Connect to a SPIKE Prime hub and run a test program:"
 echo         "         python3.12 -m pybricksdev run ble --name <hub-name> main.py"
 cecho "$WHITE" "  6. GitHub Desktop is the chapter-standard GUI client on Linux."
-echo         "       The Flatpak fork (io.github.shiftkey.Desktop) was installed in step 1."
+echo         "       The Flatpak fork (io.github.shiftey.Desktop) was installed in step 1."
 echo         "       Pin it to the dash from Activities for easy daily access."
 echo
 cecho "$GRAY" "If anything went wrong, the script is safe to re-run."
