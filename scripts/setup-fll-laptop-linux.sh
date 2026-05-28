@@ -73,6 +73,24 @@ RESET='\033[0m'
 
 cecho() { printf "%b%s%b\n" "$1" "$2" "$RESET"; }
 
+# -----------------------------------------------------------------------------
+# Flatpak helpers
+# -----------------------------------------------------------------------------
+
+# reinstall_flatpak_user APP_ID [REMOTE]
+# Fully wipes and reinstalls a user-scope Flatpak app. Safe on first install
+# too. Useful when an app has misbehaved after a major OS upgrade and a clean
+# reset is wanted. Portable across flatpak versions -- avoids the 1.10+
+# `--delete-data` flag that older Fedora releases reject as unknown.
+# Not called by default; first-run provisioning shouldn't wipe data.
+reinstall_flatpak_user() {
+    local app_id="$1"
+    local remote="${2:-flathub}"
+    flatpak uninstall --user -y "$app_id" 2>/dev/null || true
+    rm -rf "$HOME/.var/app/$app_id"
+    flatpak install --user -y "$remote" "$app_id"
+}
+
 # =============================================================================
 # TEAM SELECTION
 # =============================================================================
