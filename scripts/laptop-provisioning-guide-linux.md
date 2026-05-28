@@ -217,6 +217,118 @@ These produce the same end state as the equivalent GitHub Desktop
 operations. The first `git push` of a session will prompt for the
 GitHub PAT; it'll then be cached for 8 hours.
 
+## Maintaining a laptop across Linux version upgrades
+
+A laptop provisioned under one Fedora release will not just keep
+working indefinitely. Python virtual environments in particular
+break across major Fedora upgrades, and some Flatpak applications
+stop rendering correctly. Plan a maintenance pass before each FLL
+season so laptops stay on a current, supported release.
+
+### 1. The `dnf system-upgrade` jump limit
+
+The Fedora system-upgrade tool officially supports moving up to two
+releases in one step (N to N+1, or N to N+2). To go further, run it
+in stages. One donated laptop in practice required Fedora 41 -> 43
+-> 44, which is two upgrade cycles and two reboots.
+
+If the source release is end-of-life its repos have moved to
+`dl.fedoraproject.org/pub/archive/`. The system-upgrade plugin
+handles this in most cases, but raw `dnf install` calls may fail
+until either the repo URLs are updated or the system itself is
+upgraded.
+
+### 2. Python venvs break across Fedora major upgrades
+
+Fedora bumps Python's minor version with most releases (e.g., F41
+ships Python 3.13, F44 ships 3.14). Any virtual environment created
+under the old release becomes unusable because:
+
+- `.venv/bin/python` is a symlink to a system binary that no longer exists.
+- `.venv/lib/python3.13/` no longer matches the current interpreter.
+- Any compiled wheels are tied to the old Python ABI.
+
+The symptom in VS Code is a brief "interpreter not found" popup in
+the bottom-right corner that flashes and disappears, after which the
+status bar still shows the (now broken) `.venv` interpreter.
+
+**Fix -- delete and recreate the venv.** From the repo root:
+
+```bash
+rm -rf .venv
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+pip install pybricks pybricksdev
+```
+
+Then in VS Code:
+
+- `Ctrl+Shift+P` -> **Python: Select Interpreter** -> pick `.venv/bin/python`.
+- If the status bar still looks stale, `Ctrl+Shift+P` -> **Developer: Reload Window**.
+
+### 3. Flatpak apps launch but no window appears
+
+Observed after Fedora 41 -> 44 with GitHub Desktop: clicking the
+launcher produced a taskbar/dash entry and live processes, but no
+visible window. This affected GitHub Desktop specifically on a
+laptop with an NVIDIA GPU, and it is a common pattern for any
+Electron-based Flatpak app after a major OS upgrade.
+
+The root cause is that Flatpak runtimes (especially
+`org.freedesktop.Platform.GL.nvidia-*`, the GPU driver runtime that
+ships inside Flatpak's sandbox) do not auto-update with the host
+OS. After a major upgrade the runtime version inside the sandbox
+can mismatch the host kernel driver, and GPU initialization
+silently fails. The app process starts but never gets a usable
+rendering surface, so no window appears.
+
+**The fix is almost always one command:**
+
+```bash
+flatpak update
+```
+
+Accept everything (`y`), then relaunch the app normally. On NVIDIA
+systems, watch for an `org.freedesktop.Platform.GL.nvidia-XXX-YYY-ZZ`
+update in the list -- that is the one that matters.
+
+If the GUI still doesn't appear after `flatpak update`, launch from
+a terminal to see the actual errors:
+
+```bash
+flatpak run io.github.shiftey.Desktop
+```
+
+Common follow-up fixes if errors appear:
+
+- Force X11 backend (Wayland rendering glitches): `flatpak override --user --env=GDK_BACKEND=x11 io.github.shiftey.Desktop`
+- Disable GPU acceleration entirely: `flatpak run io.github.shiftey.Desktop --disable-gpu`
+- Reset overrides if experiments stack up: `flatpak override --user --reset io.github.shiftey.Desktop`
+
+Reinstalling the Flatpak app does not help -- the runtime is shared
+across all Flatpak apps and is independent of any individual app's
+installation state. Wiping `~/.var/app/<id>/` only resets user
+data, not the runtime.
+
+### 4. Other things to check after a major upgrade
+
+- `pybricksdev` still installs cleanly into the new venv.
+- BLE pairing to the SPIKE hub still works (BlueZ updates with the OS).
+- VS Code extensions (Python, Pylance) refresh against the new interpreter.
+- `flatpak update` runs cleanly -- Flatpak runtimes don't auto-update with the OS (see section 3 above; this is the most common cause of post-upgrade Flatpak failures).
+- Any *other* repos on the laptop with their own venvs are broken the same way. A quick sweep:
+
+  ```bash
+  find ~ -name pyvenv.cfg 2>/dev/null -exec grep -l 'version = 3\.' {} +
+  ```
+
+### 5. Suggested cadence
+
+Run distro upgrades, venv refreshes, and `flatpak update` **before
+each FLL season kickoff**, not mid-season. A laptop that boots into
+popup errors the night before a meet is the worst outcome.
+
 ## Notes and gotchas
 
 **Account creation friction.** Gmail enforces a phone-number rate
