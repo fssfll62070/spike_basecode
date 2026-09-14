@@ -4,7 +4,7 @@
 # Description:
 # [Describe What your mission does here]
 #
-# Author(s): [Your Name(s)]
+# Author(s): [pierce]
 # Date: [YYYY-MM-DD]
 # Version: 1.0
 #
@@ -22,7 +22,8 @@ def mission_three(r: robot):
     # Your code goes here...
     # Sample Code: Test running the attachment motor until stalled
     r.ram.run_until_stalled(1000, duty_limit=30)
-
+    r.robot.drive(700)
+     r.ram.run_angle(-90)
 ################################
 # KEEP THIS AT THE END OF THE FILE
 # This redirects to running main.
