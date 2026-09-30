@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Run on BR-01",
+      "name": "Run on BR-1",
       "type": "debugpy",
       "noDebug": true,
       "request": "launch",
@@ -11,12 +11,12 @@
         "run",
         "ble",
         "--name",
-        "BR-01",
+        "BR-1",
         "main.py"
       ]
     },
     {
-      "name": "Run on BR-02",
+      "name": "Run on BR-15",
       "type": "debugpy",
       "noDebug": true,
       "request": "launch",
@@ -25,12 +25,12 @@
         "run",
         "ble",
         "--name",
-        "BR-02",
+        "BR-15",
         "main.py"
       ]
     },
     {
-      "name": "Run on BR-03",
+      "name": "Run on BR-3",
       "type": "debugpy",
       "noDebug": true,
       "request": "launch",
@@ -39,7 +39,7 @@
         "run",
         "ble",
         "--name",
-        "BR-03",
+        "BR-3",
         "main.py"
       ]
     }
