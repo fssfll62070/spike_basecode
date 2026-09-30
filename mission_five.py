@@ -19,7 +19,8 @@ from pybricks.tools import wait, StopWatch
 def mission_five(r: robot):
     print("Running Mission 5")
     # Your code goes here...
-
+    r.robot.straight(520)
+notes = ["E5/5.", "G6/6", "D4/16", "D4/16", "D4/16", "D4/16", "D4/16", "D4/16", "D4/16", "D4/16", "D4/16", "D4/16", "D4/16", "D4/16", "D4/16", "A6/1"]
 ################################
 # KEEP THIS AT THE END OF THE FILE
 # This redirects to running main.
