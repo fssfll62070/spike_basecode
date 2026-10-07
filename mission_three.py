@@ -20,11 +20,14 @@ from pybricks.tools import wait, StopWatch
 def mission_three(r: robot):
     print("Running Mission 3")
     # Your code goes here...
+    # Mission 3 is Pierce's Code
     # Sample Code: Test running the attachment motor until stalled
-    r.ram.run_until_stalled(1000, duty_limit=30)
-    r.robot.drive(700)
-     r.ram.run_angle(-90)
-################################
+    r.robot.straight(400)
+    r.ram.run_time(-1000,400)
+    r.robot.straight(-120)
+    r.ram.run_time(1000,400)
+    r.robot.straight(12)
+    r.robot.straight(-400)
 # KEEP THIS AT THE END OF THE FILE
 # This redirects to running main.
 ################################

@@ -19,6 +19,10 @@ from pybricks.tools import wait, StopWatch
 def mission_seven(r: robot):
     print("Running Mission 7")
     # Your code goes here...
+    r.robot.arc(100,43)
+    r.robot.turn(-30)
+    r.lam.run_angle(50,30)
+    r.robot.straight(30)
 
 ################################
 # KEEP THIS AT THE END OF THE FILE

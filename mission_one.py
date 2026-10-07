@@ -29,6 +29,14 @@ def mission_one(r: robot):
     r.rdm.run_time(400,1000)
     r.rdm.run_time(-400,1000)
 
+    r.robot.straight(425)
+    r.robot.turn(-70)
+    r.robot.straight(-150)
+    r.robot.turn(-25)
+    r.robot.straight(375)
+    r.robot.turn(60)
+    r.robot.straight(-75)
+    r.robot.straight(30)
 ################################
 # KEEP THIS AT THE END OF THE FILE
 # This redirects to running main.
