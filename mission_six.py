@@ -19,13 +19,7 @@ from pybricks.tools import wait, StopWatch
 def mission_six(r: robot):
     print("Running Mission 6")
     # Your code goes here...
-#<<<<<<< Updated upstream
-   # r.ram.run_angle(50)
-#||||||| Stash base
-
-#=======
-#    r.lam.run_angle(90,90)
-#>>>>>>> Stashed changes
+ 
 ################################
 # KEEP THIS AT THE END OF THE FILE
 # This redirects to running main.
