@@ -21,13 +21,19 @@ def mission_one(r: robot):
     # Your code goes here...
     # Sample Code: Run attachment motors and drive motors
     r.robot.straight(465)
-    r.robot.turn(-75)
+    r.robot.turn(-85)
     r.robot.straight(-150)
-    r.robot.turn(60)
-    r.robot.straight(215)
-    r.robot.turn(60)
+    r.robot.turn(65)
     r.robot.straight(125)
-    r.robot.straight(30)
+    r.robot.turn(60)
+    r.ram.run_time(-300,1000)
+    r.robot.straight(60)
+    r.ram.run_time(800,1000)
+    r.ram.run_time(-740,1000)
+    r.robot.straight(-180)
+    r.robot.turn(-60)
+    r.robot.straight(-380)
+
 ################################
 # KEEP THIS AT THE END OF THE FILE
 # This redirects to running main.
