@@ -24,12 +24,15 @@ def mission_three(r: robot):
     # Your code goes here...
     # Mission 3 is Pierce's Code
     # Sample Code: Test running the attachment motor until stalled
+
+################################
+
     r.robot.straight(425)
-    r.ram.run_time(-85,1000)
-    r.robot.straight(-130)
-    r.ram.run_time(100,1000)
-    r.robot.straight(130)
-    r.ram.run_time(-85,1000)
+    r.ram.run_angle(-850,75)
+    r.robot.straight(-110)
+    r.ram.run_angle(850,75)
+    r.robot.straight(110)
+    r.ram.run_angle(-850,75)
     r.robot.straight(-425)
 
 # KEEP THIS AT THE END OF THE FILE
@@ -38,3 +41,4 @@ def mission_three(r: robot):
 if __name__ == "__main__":
     from main import main
     main()
+
