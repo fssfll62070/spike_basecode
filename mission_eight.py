@@ -19,7 +19,7 @@ from pybricks.tools import wait, StopWatch
 def mission_eight(r: robot):
     print("Running Mission 8")
     # Your code goes here...
-
+    r.robot.straight(100)
 
 ################################
 # KEEP THIS AT THE END OF THE FILE

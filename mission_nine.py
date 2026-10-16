@@ -20,9 +20,9 @@ def mission_nine(r: robot):
     print("Running Mission 9")
     # Your code goes here...
   #  r.robot.straight
-    r.robot.straight(675)
-    r.robot.turn(-70)
-    #r.robot.turn(50)
+    r.robot.straight(663)
+    r.robot.turn(-76)
+    r.robot.turn(85)
     r.robot.straight(-900)
 
 

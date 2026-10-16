@@ -21,6 +21,21 @@ def mission_three(r: robot):
     print("Running Mission 3")
     # Your code goes here...
     # Sample Code: Test running the attachment motor until stalled
+#<<<<<<< Updated upstream
+#||||||| Stash base
+#    r.ram.run_until_stalled(1000, duty_limit=30)
+    #r.robot.drive(700)
+    # r.ram.run_angle(-90)
+#=======
+#
+#"""r.robot.straight(590)
+    #r.ram.(-45)
+    #r.robot.straight(-14)
+    #.ram.(45)
+    #r.robot.(14)
+    #r.robot.(-45)
+    #r.robot.""
+#>>>>>>> Stashed changes
 ################################
 # KEEP THIS AT THE END OF THE FILE
 # This redirects to running main.
