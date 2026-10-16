@@ -24,11 +24,11 @@ def mission_three(r: robot):
 ################################
 
     r.robot.straight(425)
-    r.ram.run_angle(-85,1000)
-    r.robot.straight(-130)
-    r.ram.run_angle(100,1000)
-    r.robot.straight(130)
-    r.ram.run_angle(-85,1000)
+    r.ram.run_angle(-850,75)
+    r.robot.straight(-110)
+    r.ram.run_angle(850,75)
+    r.robot.straight(110)
+    r.ram.run_angle(-850,75)
     r.robot.straight(-425)
 
 # KEEP THIS AT THE END OF THE FILE
