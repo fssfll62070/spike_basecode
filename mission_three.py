@@ -29,12 +29,12 @@ def mission_three(r: robot):
 
     r.robot.straight(415)
     r.ram.run_angle(-850,75)
-    r.robot.straight(-110)
+    r.robot.straight(-405)
     r.ram.run_angle(850,75)
-    r.lam.run_angle(100,200)
-    r.robot.straight(103)
-    r.ram.run_angle(-850,75)
+    r.robot.straight(375)
+    r.ram.run_angle(-580,75)
     r.robot.straight(-415)
+
 
 # KEEP THIS AT THE END OF THE FILE
 # This redirects to running main.
