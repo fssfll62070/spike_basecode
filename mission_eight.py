@@ -27,7 +27,9 @@ def mission_eight(r: robot):
     r.ram.run_angle(200,70)
     r.robot.straight(-40)
     r.ram.run_angle(200,-90)
-    r.robot.straight(-100)
+    r.robot.drive(-1000,25)
+    wait(3000)
+    r.robot.stop()
 ################################
 # KEEP THIS AT THE END OF THE FILE
 # This redirects to running main.
