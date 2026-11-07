@@ -27,6 +27,7 @@ def mission_three(r: robot):
 
 ################################
 
+<<<<<<< HEAD
     r.robot.straight(400)
     r.ram.run_time(-850,200, wait=False)
     r.ram.run_time(-850,400)
@@ -36,8 +37,22 @@ def mission_three(r: robot):
     r.robot.straight(370)
     r.ram.run_time(-580,400, wait=False)
     r.ram.run_time(-580,400)
+||||||| 0adc5bb
+    r.robot.straight(405)
+    r.ram.run_angle(-850,75)
+    r.robot.straight(-405)
+    r.ram.run_angle(850,75)
+    r.robot.straight(365)
+    r.ram.run_angle(-580,75)
+=======
+    r.robot.straight(385)
+    r.ram.run_angle(-850,75)
+    r.robot.straight(-110)
+    r.ram.run_angle(810,75)
+    r.robot.straight(103)
+    r.ram.run_angle(-850,75)
+>>>>>>> 995b6b34256b383af64a8c35058a37995d25ad61
     r.robot.straight(-415)
-
 
 # KEEP THIS AT THE END OF THE FILE
 # This redirects to running main.
