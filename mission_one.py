@@ -44,7 +44,9 @@ def mission_one(r: robot):
     r.robot.turn(-90)
     r.robot.straight(150)
     r.robot.turn(-120)
+    r.ram.run_time(2000,300)
      #r.robot.straight(2000)
+
 
 ################################
 # KEEP THIS AT THE END OF THE FILE
