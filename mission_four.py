@@ -19,6 +19,7 @@ from pybricks.tools import wait, StopWatch
 def mission_four(r: robot):
     print("Running Mission 4")
     # Your code goes here...
+    #owenini plescanini im cheses up down chese pu nwod esech
     r.robot.straight(650)
     r.robot.turn(60)
     r.lam.run_time(1000,500)

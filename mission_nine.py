@@ -20,7 +20,6 @@ def mission_nine(r: robot):
      print("Running Mission 9")
     # Your code goes here...
 
-
 ################################
 # KEEP THIS AT THE END OF THE FILE
 # This redirects to running main.
