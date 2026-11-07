@@ -27,12 +27,15 @@ def mission_three(r: robot):
 
 ################################
 
-    r.robot.straight(405)
-    r.ram.run_angle(-850,75)
-    r.robot.straight(-405)
-    r.ram.run_angle(850,75)
-    r.robot.straight(365)
-    r.ram.run_angle(-580,75)
+    r.robot.straight(400)
+    r.ram.run_time(-850,200, wait=False)
+    r.ram.run_time(-850,400)
+    r.robot.straight(-400)
+    r.ram.run_time(850,400, wait=False)
+    r.ram.run_time(580,400)
+    r.robot.straight(370)
+    r.ram.run_time(-580,400, wait=False)
+    r.ram.run_time(-580,400)
     r.robot.straight(-415)
 
 
