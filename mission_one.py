@@ -32,7 +32,7 @@ def mission_one(r: robot):
     r.ram.run_time(-740,500)
     r.robot.straight(-180)
     r.robot.turn(100)
-    r.robot.straight(-425)
+    r.robot.straight(-415)
     r.ram.run_time(800,250)
     r.robot.turn(95)
     r.robot.straight(-50)
@@ -42,11 +42,11 @@ def mission_one(r: robot):
     r.robot.straight(-50)
     r.robot.straight(-425)
     r.robot.turn(-90)
-    r.robot.straight(150)
+    r.robot.straight(155)
     r.ram.run_time(-2000,400)
     r.robot.turn(-130)
     r.ram.run_time(2000,500)
-    r.robot.straight(2000)
+    r.robot.straight(-2000)
 
 
 ################################
